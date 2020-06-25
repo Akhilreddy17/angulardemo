@@ -26,7 +26,7 @@ pipeline{
                   steps { 
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){ 
                          //aws cloudformation create-stack --stack-name S3bucketcreation --template-body file:cft.yaml
-                         sh 'aws s3api creat-bucket --bucket 6god --region us-east-1'
+                         sh 'aws s3api creat-bucket --bucket busireddy --region us-east-1'
                     }
                   }
               }
@@ -37,7 +37,7 @@ pipeline{
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){
        
         sh 'aws s3 ls'
-        sh 'aws s3 sync . s3://6god/ --region us-east-1'
+        sh 'aws s3 sync . s3://busireddy/ --region us-east-1'
         }
       } 
        }
